@@ -1,0 +1,102 @@
+action_factory: null
+action_names:
+- utter_greet
+- utter_goodbye
+- utter_default
+- utter_ask_howcanhelp
+- utter_ask_location
+- utter_ask_cuisine
+- utter_price_preference
+- utter_email_request
+- utter_ask_email
+- action_restaurant
+- lookup_location
+- send_mail
+- mail_request
+actions:
+- utter_greet
+- utter_goodbye
+- utter_default
+- utter_ask_howcanhelp
+- utter_ask_location
+- utter_ask_cuisine
+- utter_price_preference
+- utter_email_request
+- utter_ask_email
+- actions.ActionSearchRestaurants
+- actions.ActionLookupLocation
+- actions.ActionSendMail
+- actions.ActionMailRequest
+config:
+  store_entities_as_slots: true
+entities:
+- location
+- cuisine
+- price_preference
+- email_request
+- email_address
+intents:
+- greet
+- affirm
+- goodbye
+- restaurant_search
+slots:
+  cuisine:
+    initial_value: null
+    type: rasa_core.slots.TextSlot
+  email_address:
+    initial_value: null
+    type: rasa_core.slots.TextSlot
+  email_request:
+    initial_value: null
+    type: rasa_core.slots.TextSlot
+  location:
+    initial_value: null
+    type: rasa_core.slots.TextSlot
+  price_preference:
+    initial_value: null
+    type: rasa_core.slots.TextSlot
+templates:
+  utter_ask_cuisine:
+  - buttons:
+    - payload: Chinese
+      title: Chinese
+    - payload: Mexican
+      title: Mexican
+    - payload: South Indian
+      title: South Indian
+    - payload: North Indian
+      title: North Indian
+    - payload: Italian
+      title: Italian
+    - payload: American
+      title: American
+    text: What kind of cuisine would you prefer?
+  utter_ask_email:
+  - text: Could you please share your email address?
+  - text: Please share email Address
+  - text: You can share multiple email address , if required
+  utter_ask_howcanhelp:
+  - text: how can I help you?
+  utter_ask_location:
+  - text: In which city are you looking for restaurants?
+  utter_default:
+  - text: default message
+  utter_email_request:
+  - text: Do you want the details of top 10 restaurants via email?
+  utter_goodbye:
+  - text: goodbye :(
+  - text: Bye-bye
+  utter_greet:
+  - text: hey there! How may i help you
+  - text: Hi, How can I help you!
+  - text: Hey, How is it going. How May I help you Today
+  utter_price_preference:
+  - buttons:
+    - payload: Lesser than Rs. 300
+      title: Lesser than Rs. 300
+    - payload: Rs. 300 to 700
+      title: Rs. 300 to 700
+    - payload: More than 700
+      title: More than 700
+    text: What price range are you looking at?

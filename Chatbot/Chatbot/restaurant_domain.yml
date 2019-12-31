@@ -1,0 +1,86 @@
+slots:
+  location:
+    type: text
+  cuisine:
+    type: text
+  price_preference:
+    type: text
+  email_request:
+    type: text
+  email_address:
+    type: text
+
+entities:
+- location
+- cuisine
+- price_preference
+- email_request
+- email_address
+
+intents:
+ - greet
+ - affirm
+ - goodbye
+ - restaurant_search
+
+
+templates:
+  utter_greet:
+    - "hey there! How may i help you"
+    - "Hi, How can I help you!"
+    - "Hey, How is it going. How May I help you Today"
+  utter_goodbye:
+    - "goodbye :("
+    - "Bye-bye"
+  utter_default:
+    - "default message"
+  utter_ask_location:
+    - "In which city are you looking for restaurants?"
+  utter_ask_cuisine: 
+    - text: "What kind of cuisine would you prefer?"
+      buttons:
+      - title: "Chinese"
+        payload: "Chinese"
+      - title: "Mexican"
+        payload: "Mexican"
+      - title: "South Indian"
+        payload: "South Indian"
+      - title: "North Indian"
+        payload: "North Indian"
+      - title: "Italian"
+        payload: "Italian"
+      - title: "American"
+        payload: "American"        
+  utter_ask_howcanhelp:
+    - "how can I help you?"
+  utter_price_preference:
+    - text: "What price range are you looking at?"
+      buttons:
+      - title: "Lesser than Rs. 300"
+        payload: "Lesser than Rs. 300"
+      - title: "Rs. 300 to 700"
+        payload: "Rs. 300 to 700"
+      - title: "More than 700"
+        payload: "More than 700"
+  utter_email_request:
+     - "Do you want the details of top 10 restaurants via email?"
+  utter_ask_email:
+     - "Could you please share your email address?"
+     - "Please share email Address"
+     - "You can share multiple email address , if required"
+  
+
+actions:
+- utter_greet
+- utter_goodbye
+- utter_default
+- utter_ask_howcanhelp
+- utter_ask_location
+- utter_ask_cuisine
+- utter_price_preference
+- utter_email_request
+- utter_ask_email
+- actions.ActionSearchRestaurants
+- actions.ActionLookupLocation
+- actions.ActionSendMail
+- actions.ActionMailRequest
